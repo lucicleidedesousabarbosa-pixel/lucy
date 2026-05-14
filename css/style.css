@@ -1,0 +1,219 @@
+:root {
+  --primary: #6366f1;
+  --secondary: #a855f7;
+  --bg-dark: #09090b;
+  --card-bg: rgba(24, 24, 27, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #f4f4f5;
+  --text-dim: #a1a1aa;
+  --accent-grad: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.resume-card {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.sidebar {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 50px 40px;
+  border-right: 1px solid var(--glass-border);
+}
+
+.profile-area {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 25px;
+}
+
+.avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  padding: 5px;
+}
+
+.status-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: var(--accent-grad);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border: 2px solid var(--bg-dark);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  margin-bottom: 12px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: 0.4s;
+  font-size: 0.85rem;
+}
+
+.contact-link:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--text-main);
+  transform: translateY(-3px);
+}
+
+.main-content {
+  padding: 60px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  font-weight: 400;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+.info-pills {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+.pill {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  border: 1px solid var(--glass-border);
+}
+
+.section-header {
+  margin-top: 45px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.section-header::after {
+  content: "";
+  height: 1px;
+  background: linear-gradient(to right, var(--glass-border), transparent);
+  flex: 1;
+}
+
+.card-item {
+  margin-top: 20px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  transition: 0.3s;
+}
+
+.card-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--secondary);
+}
+
+.card-item span {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.75rem;
+}
+
+.skill-badge {
+  background: rgba(168, 85, 247, 0.1);
+  color: var(--secondary);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  margin: 4px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .resume-card {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    border-right: none;
+    padding: 40px 20px;
+  }
+  .main-content {
+    padding: 40px 20px;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .cert-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
